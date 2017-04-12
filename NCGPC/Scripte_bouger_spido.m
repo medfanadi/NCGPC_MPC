@@ -8,10 +8,10 @@ clc;
 
 
 %% Simulation selon le Type de la trajectoire (rectiligne, ciculaire sinusoidale)
-X0=[0 0 0 6 0 0];  %condition initiale cas DROITE
-% X0=[0 0 0 27 27 0]; %condition initiale cas CIRCLE
+X0_rectiligne=[0 0 -pi/3*0.8 6*cos(-pi/3*0.8) 6*sin(-pi/3*0.8) 0];  %condition initiale cas DROITE
+X0_circulaire=[60 0 0.8*pi/2 0 5 5/60]; %condition initiale cas CIRCLE
 
-sim('NCGPC_circulaire',100);
+sim('NCGPC_droite',50);
 
 
 %% Paramètres du robot
@@ -53,11 +53,30 @@ x_ref(:,1)=posref(1,1,:);
 
 y_ref(:,1)=posref(1,2,:);
 
+psi_ref(:,1)=posref(1,3,:);
+
 x_cal(:,1)=pos_cal(1,1,:);
 
 y_cal(:,1)=pos_cal(1,2,:);
 
-%qques réglages graphiques
+psi_cal(:,1)=pos_cal(1,3,:);
+
+%% erreur
+
+figure;
+plot(temps,y_ref(:,1)-y_cal(:,1),'b','LineWidth',3)
+grid on
+xlabel('temps(s)');
+ylabel('erreur latérale (m)');
+title('erreure latérale (m)');
+
+figure;
+plot(temps,psi_ref(:,1)-psi_cal(:,1),'b','LineWidth',3)
+grid on
+xlabel('temps(s)');
+ylabel('erreur angulaire (rad)');
+title('erreure angulaire (rad)');
+%% qques réglages graphiques
 x=zeros(1,5);
 y=zeros(1,5);
 
