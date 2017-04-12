@@ -29,3 +29,16 @@ xlabel('temps(s)');
 ylabel('angle de braquage (rad)');
 legend('beta-f','beta_r');
 
+figure;
+plot(temps,y_ref(:,1)-y_cal(:,1),'b','LineWidth',3)
+grid on
+xlabel('temps(s)');
+ylabel('erreur latérale (m)');
+title('erreure latérale (m)');
+
+figure;
+plot(temps,psi_ref(:,1)-psi_cal(:,1),'b','LineWidth',3)
+grid on
+xlabel('temps(s)');
+ylabel('erreur angulaire (rad)');
+title('erreure angulaire (rad)');
