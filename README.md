@@ -1,2 +1,2 @@
-# NCGPC_Mohamed_Phd
+# Nonlinear Continuous timer Generalised Predicitve Control (Mtalab/Simulink)
 Commande prédictive
